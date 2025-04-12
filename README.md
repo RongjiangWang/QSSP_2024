@@ -18,6 +18,8 @@ QSSPSTATIC - Co- and post-seismic viscoelastic deformation based on a spherical 
 
 QSSPCOSEIS - Co-seismic static deformation based on a spherical elastic-gravitational earth model.
 
+SPGRN - synthetic Green's function database based on a spherical elastic-gravitational earth model.
+
 For Windows user, the executable file is provided under folder "WindowsEXE". Linux user may compile the source codes with "gfortran" via a single command like, e.g.,
 
 ~>cd .../SourceCode
