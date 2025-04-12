@@ -1,4 +1,4 @@
-FORTRAN code for calculating complete synthetic seismograms of a spherical earth using the normal mode theory.
+This is the 2024 version of FORTRAN code QSSP for calculating complete synthetic seismograms of a spherical earth using the normal mode theory. In comparison with the 2020 version, it changes the input format to provide more options of source types as well as their composition.
 
 Highlights:
 
