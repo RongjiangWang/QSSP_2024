@@ -10,7 +10,7 @@ Highlights:
 
 (4) complex frequency technique for supressing the time-domain aliasing problem
 
-(5) differential filter technique for suppressing numerical phases
+(5) differential filter technique for suppressing numerical phases (i.e., space-domain aliasing, see Wang and Wang (2007))
 
 Related codes
 
