@@ -2,7 +2,7 @@ This is the 2024 version of FORTRAN code QSSP for calculating complete synthetic
 
 Highlights:
 
-(1) all-in-one code for body waves, surface waves, free oscillations, tsunami for uniform ocean, infrasound waves for a standard atmosphere and static deformation
+(1) all-in-one code for body waves, surface waves, free oscillations, tsunami for uniform ocean, infrasound/accoustic-gravity/Lamb waves for a standard atmosphere, and static solid-earth deformation as well
 
 (2) generating Green’s function database or simulating complete seismograms for any given kinematic source model
 
