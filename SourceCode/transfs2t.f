@@ -39,7 +39,7 @@ c
         enddo
 c
         do lf=1,(ntcutout+1)/2
-          t=dble(2*lf-1)*dtout
+          t=dble(2*lf-2)*dtout
           it=1+idint(t/dt)
           if(it.ge.2*nf)then
             sr=dreal(cswap(2*nf))
@@ -49,7 +49,7 @@ c
             sr=a*dreal(cswap(it))+b*dreal(cswap(it+1))
           endif
 c
-          t=dble(2*lf)*dtout
+          t=dble(2*lf-1)*dtout
           it=1+idint(t/dt)
           if(it.ge.2*nf)then
             si=dreal(cswap(2*nf))
