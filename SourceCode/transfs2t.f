@@ -9,8 +9,8 @@ c
       character*10 rname(nr)
       character*80 outfile
 c
-      real*8 PI2
-      data PI2/6.28318530717959d0/
+      real*8 EPS,PI2
+      data EPS,PI2/1.0d-08,6.28318530717959d0/
 c
       integer*4 ir,lf,mf,it,itout
       real*8 t,sr,si,a,b
@@ -38,29 +38,34 @@ c
           cswap(lf)=cswap(lf)*dcmplx(dexp(-PI2*fi*t)*df,0.d0)
         enddo
 c
-        do lf=1,(ntcutout+1)/2
-          t=dble(2*lf-2)*dtout
-          it=1+idint(t/dt)
-          if(it.ge.2*nf)then
-            sr=dreal(cswap(2*nf))
-          else
-            b=dmod(t,dt)/dt
-            a=1.d0-b
-            sr=a*dreal(cswap(it))+b*dreal(cswap(it+1))
-          endif
+        if(dabs(dtout-dt)/dt.le.EPS)then
+          do lf=1,(ntcutout+1)/2
+            cy(lf,ir)=dcmplx(dreal(cswap(2*lf-1)),dreal(cswap(2*lf)))
+          enddo
+        else
+          do lf=1,(ntcutout+1)/2
+            t=dble(2*lf-2)*dtout
+            it=1+idint(t/dt)
+            if(it.ge.2*nf)then
+              sr=dreal(cswap(2*nf))
+            else
+              b=dmod(t,dt)/dt
+              a=1.d0-b
+              sr=a*dreal(cswap(it))+b*dreal(cswap(it+1))
+            endif
 c
-          t=dble(2*lf-1)*dtout
-          it=1+idint(t/dt)
-          if(it.ge.2*nf)then
-            si=dreal(cswap(2*nf))
-          else
-            b=dmod(t,dt)/dt
-            a=1.d0-b
-            si=a*dreal(cswap(it))+b*dreal(cswap(it+1))
-          endif
-c
-          cy(lf,ir)=dcmplx(sr,si)
-        enddo
+            t=dble(2*lf-1)*dtout
+            it=1+idint(t/dt)
+            if(it.ge.2*nf)then
+              si=dreal(cswap(2*nf))
+            else
+              b=dmod(t,dt)/dt
+              a=1.d0-b
+              si=a*dreal(cswap(it))+b*dreal(cswap(it+1))
+            endif
+            cy(lf,ir)=dcmplx(sr,si)
+          enddo
+        endif
       enddo
 c
       open(20,file=outfile,status='unknown')
