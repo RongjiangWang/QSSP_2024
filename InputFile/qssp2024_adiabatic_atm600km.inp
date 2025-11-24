@@ -89,7 +89,7 @@
 #    source radius) is changed.
 #--------------------------------------------------------------------------------------------------------
     1     '../Greens/'
-  -20.000  30.0   'Green_atm600km_adiabatic_a20km'      0
+  -20.000  30.0   'Green_atm600km_adiabatic_a20km'      1
 #--------------------------------------------------------------------------------------------------------
 #
 #   DISLOCATION (EARTHQUAKE) SOURCE PARAMETERS
@@ -113,12 +113,12 @@
 #    Key_stf: Selection key for default STF wavelet.
 #             0 -> stf(t)[Nm/s] = sin^2(Pi*(t-T_origin)/T_rise)*Pi/(2*T_rise),
 #                                 for (T_origin <= t <= T_origin + T_rise);
-#             1 -> stf(t)[Nm/s] = exp((t-T_origin)/T_rise)*1/T_rise
+#             1 -> stf(t)[Nm/s] = exp(-(t-T_origin)/T_rise)*1/T_rise
 #                                 for (T_origin <= t < infinity);
-#             2 -> stf(t)[Nm/s] = exp((t-T_origin)/T_rise)*(t-T_origin)*1/T_rise^2
+#             2 -> stf(t)[Nm/s] = exp(-(t-T_origin)/T_rise)*(t-T_origin)*1/T_rise^2
 #                                 for (T_origin <= t < infinity);
 #             ...
-#             n -> stf(t)[Nm/s] = exp((t-T_origin)/T_rise)*(t-T_origin)*(n-1)!/T_rise^2
+#             n -> stf(t)[Nm/s] = exp(-(t-T_origin)/T_rise)*(t-T_origin)^(n-1)/((n-1)!*T_rise^n)
 #                                 for (T_origin <= t < infinity);
 #
 #    Note: integral of STF over time = 1 [Nm].
@@ -143,12 +143,12 @@
 #    STF: Selection key for default STF wavelet
 #         0 -> stf(t)[N] = sin^2(Pi*(t-T_origin)/T_rise)*Pi/(2*T_rise),
 #                          for (T_origin <= t <= T_origin + T_rise);
-#         1 -> stf(t)[N] = exp((t-T_origin)/T_rise)*1/T_rise
+#         1 -> stf(t)[N] = exp(-(t-T_origin)/T_rise)*1/T_rise
 #                          for (T_origin <= t < infinity);
-#         2 -> stf(t)[N] = exp((t-T_origin)/T_rise)*(t-T_origin)*1/T_rise^2
+#         2 -> stf(t)[N] = exp(-(t-T_origin)/T_rise)*(t-T_origin)*1/T_rise^2
 #                          for (T_origin <= t < infinity);
 #         ...
-#         n -> stf(t)[N] = exp((t-T_origin)/T_rise)*(t-T_origin)*(n-1)!/T_rise^2
+#         n -> stf(t)[N] = exp(-(t-T_origin)/T_rise)*(t-T_origin)^(n-1)/((n-1)!*T_rise^n)
 #                          for (T_origin <= t < infinity);
 #
 #    Note: integral of STF over time (impulse) = 1 [Ns].
