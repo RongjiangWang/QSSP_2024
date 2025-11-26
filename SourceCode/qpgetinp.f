@@ -1,7 +1,7 @@
       subroutine qpgetinp(unit)
       use qpalloc
       implicit none
-      integer unit
+      integer*4 unit
 c
 c     work space
 c
@@ -788,6 +788,7 @@ c
       l0=0
       do i=2,l
         if(dp0(i).gt.dp0(i-1))then
+
           l0=l0+1
           dp0up(l0)=dp0(i-1)
           vp0up(l0)=vp0(i-1)
